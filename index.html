@@ -18,12 +18,15 @@
             --neon-red: #ff1744;    /* Merah Menyala untuk Highlight */
             --dark-red: #58000c;
             
-            --text-main: #e0e0e0;
+            --text-main: #ffffff;
             --text-muted: #9e9e9e;
             
             --font-tech: 'Share Tech Mono', monospace;
             --font-body: 'Roboto', sans-serif;
         }
+
+        /* --- EFEK SCROLL & LINK NAVIGASI --- */
+        html { scroll-behavior: smooth; }
 
         * { box-sizing: border-box; }
 
@@ -111,6 +114,7 @@
             padding-bottom: 5px;
         }
 
+        /* Teks menjadi putih solid */
         p { color: white; margin-bottom: 20px; text-align: justify; font-size: 1.05rem; }
         strong { color: white; font-weight: 700; }
         
@@ -128,22 +132,6 @@
             font-family: var(--font-tech);
             color: #fff;
             font-size: 1.1rem;
-        }
-
-        /* Diagram Box Styling */
-        .diagram-box {
-            background: #000;
-            border: 1px solid #333;
-            padding: 30px;
-            margin: 30px 0;
-            position: relative;
-            text-align: center;
-        }
-        .diagram-caption {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 15px;
-            font-family: var(--font-tech);
         }
 
         /* --- 5. SIDEBAR STYLING --- */
@@ -175,6 +163,19 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #333;
             display: flex; justify-content: space-between; align-items: center;
+        }
+
+        /* CSS Navigasi agar bisa diklik */
+        .widget ul li a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+        
+        .widget ul li a:hover {
+            color: var(--neon-red);
+            font-weight: bold;
         }
 
         /* Profile Styles */
@@ -215,12 +216,6 @@
         .threat-text { font-size: 0.85rem; color: #ccc; line-height: 1.3; }
         .threat-highlight { color: var(--neon-red); font-weight: bold; display: block; margin-bottom: 2px; }
 
-        .risk-step {
-            background: var(--dark-red); color: white;
-            padding: 10px; margin: 5px; display: inline-block; width: 100px;
-            border: 1px solid var(--neon-red); font-size: 0.9rem;
-        }
-
         /* --- FOOTER --- */
         footer {
             text-align: center;
@@ -253,7 +248,7 @@
                     Pertumbuhan ekonomi digital yang melesat tajam membawa banyak kemudahan bagi transaksi modern. Namun, di balik kemegahan inovasi tersebut, ada bayang-bayang gelap yang mengintai: <strong>Ancaman Siber</strong>. Semakin besar sebuah platform digital, semakin menggiurkan pula platform tersebut di mata para penjahat siber. Mari kita bedah anatomi serangan siber dan bagaimana siklus tersebut melumpuhkan perusahaan.
                 </p>
 
-                <h2><i class="fas fa-exclamation-triangle"></i> 1. Mengidentifikasi Risiko Utama</h2>
+                <h2 id="risiko"><i class="fas fa-exclamation-triangle"></i> 1. Mengidentifikasi Risiko Utama</h2>
                 <p>
                     Berdasarkan tren keamanan siber terbaru, ekosistem ekonomi digital saat ini dikelilingi oleh ancaman-ancaman serius. Beberapa risiko paling fatal yang sering dibahas meliputi:
                 </p>
@@ -264,7 +259,7 @@
                     <li><strong>Supply Chain Attacks:</strong> Serangan pada penyedia layanan pihak ketiga yang digunakan oleh perusahaan ekonomi digital sebagai "pintu masuk" rahasia ke server utama.</li>
                 </ul>
 
-                <h2><i class="fas fa-bomb"></i> 2. Efek Domino: Dampak Sistem Jebol</h2>
+                <h2 id="efek"><i class="fas fa-bomb"></i> 2. Efek Domino: Dampak Sistem Jebol</h2>
                 <p>
                     Ketika salah satu dari risiko di atas benar-benar terjadi, efek dominonya bisa menghancurkan bisnis secara menyeluruh. Dampaknya meliputi:
                 </p>
@@ -275,7 +270,7 @@
                     <li><strong>Konsekuensi Hukum:</strong> Tuntutan hukum perdata karena dianggap lalai dalam melindungi data pengguna (sesuai UU Perlindungan Data Pribadi).</li>
                 </ol>
 
-                <h2><i class="fas fa-search-dollar"></i> 3. Studi Kasus: Anatomi Serangan</h2>
+                <h2 id="studi-kasus"><i class="fas fa-search-dollar"></i> 3. Studi Kasus: Anatomi Serangan</h2>
                 <p>
                     Untuk memahami bagaimana risiko ini bekerja di dunia nyata, mari kita petakan sebuah skenario penyusupan <strong>Ransomware</strong> menggunakan kerangka siklus manajemen risiko.
                 </p>
@@ -286,7 +281,7 @@
 
                 <p>Berikut adalah 4 fase utama dari siklus ancaman tersebut, beserta langkah pengendaliannya:</p>
 
-                <h3>1. Security Threat (Ancaman Keamanan)</h3>
+                <h3 id="anatomi">1. Security Threat (Ancaman Keamanan)</h3>
                 <p>
                     Semuanya dimulai dari ancaman aktif. Dalam kasus ini, pelakunya adalah <strong>Hacker atau Cyber Criminal Group</strong>. Mereka aktif mencari target perusahaan digital dengan mengirimkan email <em>phishing</em> yang sudah disusupi <em>malware</em> jahat.
                 </p>
@@ -306,7 +301,7 @@
                     Pada akhirnya, risiko ini berujung pada pengrusakan aset vital. Target utamanya adalah <strong>Database Server & Data Pelanggan</strong>. Risiko ini merusak server tempat data transaksi dan data sensitif pelanggan disimpan, yang mana merupakan "nyawa" utama dari bisnis ekonomi digital.
                 </p>
 
-                <h3><i class="fas fa-shield-alt" style="margin-right:10px; color:var(--neon-red);"></i> Controls (Langkah Pengendalian)</h3>
+                <h3 id="controls"><i class="fas fa-shield-alt" style="margin-right:10px; color:var(--neon-red);"></i> Controls (Langkah Pengendalian)</h3>
                 <p>
                     Untuk memutus rantai serangan dari <em>Threat</em> hingga ke <em>IT Asset</em>, perusahaan membutuhkan kontrol yang kuat. Ini mencakup <strong>pelatihan kesadaran keamanan (security awareness)</strong> bagi karyawan agar tidak mudah tertipu <em>phishing</em>, memperbarui <strong>sistem filter email</strong>, serta melakukan <strong>pencadangan (backup) data</strong> secara rutin di server fisik yang terpisah.
                 </p>
@@ -348,17 +343,27 @@
                     <i class="fas fa-compass"></i>
                 </div>
                 <ul style="padding:0; margin:0;">
-                    <li style="border-bottom:1px solid #222; padding-bottom:5px; padding-left:0;">1. Risiko Utama</li>
-                    <li style="border-bottom:1px solid #222; padding-bottom:5px; padding-left:0;">2. Efek Domino</li>
-                    <li style="border-bottom:1px solid #222; padding-bottom:5px; padding-left:0;">3. Studi Kasus</li>
-                    <li style="border-bottom:1px solid #222; padding-bottom:5px; padding-left:0;">4. Anatomi Serangan</li>
-                    <li style="padding-left:0;">5. Controls</li>
+                    <li style="border-bottom:1px solid #222; padding-bottom:5px; padding-left:0;">
+                        <a href="#risiko">1. Risiko Utama</a>
+                    </li>
+                    <li style="border-bottom:1px solid #222; padding-bottom:5px; padding-left:0;">
+                        <a href="#efek">2. Efek Domino</a>
+                    </li>
+                    <li style="border-bottom:1px solid #222; padding-bottom:5px; padding-left:0;">
+                        <a href="#studi-kasus">3. Studi Kasus</a>
+                    </li>
+                    <li style="border-bottom:1px solid #222; padding-bottom:5px; padding-left:0;">
+                        <a href="#anatomi">4. Anatomi Serangan</a>
+                    </li>
+                    <li style="padding-left:0;">
+                        <a href="#controls">5. Controls</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="widget">
                 <div class="widget-title">
-                    <span>THREAT INTEL (Top 10)</span>
+                    <span>THREAT INTEL (Top 5)</span>
                     <i class="fas fa-radiation"></i>
                 </div>
                 
@@ -426,11 +431,6 @@
                         <i class="fas fa-newspaper" style="color:var(--primary-red); margin-right:5px;"></i>
                         <strong>Artikel Analisis:</strong><br>
                         <span style="font-size:0.8rem">Ancaman Siber 2026 (Kompas)</span> 
-                    </li>
-                    <li style="padding-left:0; border-bottom:1px dashed #222; padding-bottom:5px; padding-top:5px;">
-                        <i class="fas fa-file-powerpoint" style="color:var(--primary-red); margin-right:5px;"></i>
-                        <strong>Lecture Slides:</strong><br>
-                        <span style="font-size:0.8rem">Security Risk Management</span> 
                     </li>
                 </ul>
             </div>
